@@ -42,6 +42,7 @@ router.patch("/:id", (req,res)=>{
     res.send(patients);
 })
 
+//add a new patient
 router.post("/", (req,res)=>{
     var patientInfo = req.body;  
     patients.push(patientInfo);
