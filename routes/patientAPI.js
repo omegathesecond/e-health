@@ -1,5 +1,4 @@
 const express = require("express");
-const path = require("path");
 const router = express.Router();
 const patientManager = require("../models/Patient");
 
@@ -20,12 +19,8 @@ patients = [
 ]
 
 
-router.get("/",(req,res,next)=>{
-    res.render("patient/index", {
-        title:"View Patients", 
-        patients: patients     
-    })
-    
+router.get("/",(req,res)=>{
+    res.json(patients);
 })
 
 
