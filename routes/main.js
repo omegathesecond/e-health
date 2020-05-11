@@ -4,7 +4,9 @@ var router = express.Router();
 
 
 router.get("/", (req, res)=>{
-    res.send("Welcome To Seven E-health")
+  res.render("home",{
+      title:"Home"
+  })
 });
 
 

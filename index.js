@@ -8,23 +8,33 @@ const medicationManager = require("./models/Medication");
 const patientRouter = require("./routes/patient");
 const patientAPIRouter = require("./routes/patientAPI")
 const mainRouter = require("./routes/main");
-const hospitalRouter = require("./routes/hospital");
+const hospitalRouter = require("./routes/hospital")
+const medicationRouter = require("./routes/medication");
+const diseasesRouter = require("./routes/diseases");
+
 
 const PORT = 5002;
 var app = express();
+
+
 
 //body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
-//routing middleware
+//declare static
+app.use(express.static(__dirname + "/assets"));
+
+
 
 app.use("/", mainRouter)
+app.use("/hospitals", hospitalRouter)
 app.use("/api/patient", patientAPIRouter);
-app.use("/patient", patientRouter);
-app.use("/hospital", hospitalRouter);
+app.use("/patients", patientRouter);
+app.use("/medications", medicationRouter);
+app.use("/diseases", diseasesRouter);
 
-app.engine("handlebars", exphbs());
+app.engine("handlebars", exphbs(    ));
 app.set("view engine", "handlebars");
 
 // var hbs = exhbs.create({/**

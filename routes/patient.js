@@ -7,11 +7,13 @@ var patient1 = new patientManager.patient();
 var patient2= new patientManager.patient();
 var patient3= new patientManager.patient(); 
 
-patient1.id = 1;
-patient1.name = "sick man";
+
+
 patient2.id = 2;
+patient2.blood_type = "O";
 patient2.name = "sick woman";
 patient3.id = 3;
+patient3.blood_type = "B+";
 patient3.name = "sick child";
 
 ///list of patients
@@ -23,7 +25,7 @@ patients = [
 router.get("/",(req,res,next)=>{
     res.render("patient/index", {
         title:"View Patients", 
-        patients: patients     
+        patientsSent: patients     
     })
     
 })

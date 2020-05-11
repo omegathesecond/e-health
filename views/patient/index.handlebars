@@ -1,9 +1,17 @@
 <div class="container">
    <div class="d-flex">
-      {{#each patients}}
+      {{#each patientsSent}}
           <div class="card ml-3">
                 <div class="card-header">{{name}}</div>
-                <div class="card-body">{{id}}</div>
+                <div class="card-body">
+                    <div class="d-flex flex-column">
+                        <div class="h4">ID: {{id}}</div>
+                        <div class="h4">Gender: {{gender}}</div>
+
+                        <div class="h4">Blood Group {{blood_type}}</div>
+                    </div>
+                    
+                </div>
                
                 
             </div>

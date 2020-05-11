@@ -21,9 +21,12 @@ hospital_2.location = "Yaounde";
 
 var hospitals = [hospital_1, hospital_2];
 
-//get all hospitals
-router.get("/",(req, res)=>{
-    res.send(hospitals);
+router.get("/", function(req, res){
+    res.render("hospital/index")
+});
+
+router.get("/hospitals/add", function(req, res){
+    res.render("hospital/add")
 });
 
 //add a hospital
