@@ -1,0 +1,21 @@
+{{#if new_medication_added}}
+<div class="alert alert-success">
+    <div class="d-flex">
+        <h3>Medication Added: {{added_medication}}</h3>
+        <a href="/medications/add"><div class="btn btn-primary ml-2">Add New Medication</div></a>
+    </div>
+</div>
+
+{{else}}
+<div class="col-8 offset-2">
+    <form action="/medications/add" method="post" enctype="multipart/form-data">
+        <div class="form-group row">
+            <label class="col-md-3" for="medication_name">Medication Name:</label>
+            <input class="col-md-8" type="text" class="form-control" placeholder="Enter Medication Name"
+                id="medication_name" name="medication_name">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{{/if}}
