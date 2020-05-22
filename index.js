@@ -17,6 +17,10 @@ const PORT = 5002;
 var app = express();
 
 
+app.engine("handlebars", exphbs({
+    partialsDir: path.join(__dirname + "/views/partials")
+}));
+app.set("view engine", "handlebars");
 
 //body parser middleware
 app.use(express.json());
@@ -33,17 +37,6 @@ app.use("/api/patient", patientAPIRouter);
 app.use("/patients", patientRouter);
 app.use("/medications", medicationRouter);
 app.use("/diseases", diseasesRouter);
-
-app.engine("handlebars", exphbs(    ));
-app.set("view engine", "handlebars");
-
-// var hbs = exhbs.create({/**
-//     configuration 
-//  */
-// defaultLayout:"main",
-
-// });
-
 
 
 
